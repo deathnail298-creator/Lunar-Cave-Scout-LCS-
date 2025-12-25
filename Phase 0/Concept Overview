@@ -1,0 +1,201 @@
+01 — Concept Overview
+
+Lunar Cave Scout (LCS) — Phase 0
+
+1. Purpose
+
+The Lunar Cave Scout (LCS) is a disposable, free-flight probe designed to map lunar lava tubes from the inside, without ever touching the walls, floor, or ceiling.
+
+Its job is simple:
+
+Enter the tube from a surface rover.
+
+Fly slowly and conservatively.
+
+Map internal geometry and key environmental conditions.
+
+Maintain a communications chain as far as is practical.
+
+Return whatever data it can.
+
+Accept partial exploration and early death as normal outcomes.
+
+Mission value is measured in useful data returned, not in how “deep” the scout gets or how long it survives.
+
+2. Problem Context
+
+Lunar lava tubes are high-value targets for long-term habitat, shielding, and infrastructure. The problem is straightforward:
+
+Surface assets (rovers, landers) can’t safely enter.
+
+Ground robots have a high chance of getting stuck or lost.
+
+Full “hero” missions are expensive, slow, and politically fragile.
+
+We still need basic geometry and environment truth inside these tubes.
+
+The gap: a low-cost way to peek inside, map enough of the tube to matter, and do it in a way that tolerates failure.
+
+LCS is designed to fill that gap with cheap, sacrificial, targeted scouting.
+
+3. High-Level Concept
+
+LCS behaves as a micro-spacecraft in a cave, not a rover, not a hopper, not an anchor.
+
+At a high level:
+
+A surface rover or deployed platform positions at or near the lava-tube entrance.
+
+An LCS unit is released or launched into the tube interior.
+
+Once inside, the LCS:
+
+maintains strictly free-flight (no intentional surface contact),
+
+moves slowly and deliberately,
+
+continuously scans geometry and environment,
+
+drops simple communications repeaters to maintain a link back to the entrance rover,
+
+and adapts its progress based on risk, link quality, and remaining margin.
+
+When conditions become too uncertain or too risky, LCS is expected to prioritize data transmission and survival for as long as useful, then terminate. This is by design.
+
+4. Operating Environment
+
+Baseline assumed environment:
+
+Location: Lunar lava tubes and related subsurface voids.
+
+Lighting: Essentially dark; no reliance on ambient light.
+
+Gravity: Lunar gravity (≈1/6 g), affecting dynamics and plume behavior.
+
+Surfaces: Irregular rock, possible loose regolith, rough walls and ceilings.
+
+Line-of-Sight: Frequently obstructed; comms must bend around corners via relays.
+
+Thermal/EM: No detailed assumptions in Phase 0 beyond “compatible with lunar subsurface conditions.”
+
+Phase 0 does not commit to specific hardware choices (sensors, propulsion type, structure). It defines behavioral doctrine and mission role in this environment.
+
+5. Mission Objectives (Phase 0 Concept Level)
+
+Primary Objective
+
+Obtain actionable internal geometry and environmental data from within lunar lava tubes and deliver it back to surface systems.
+
+Secondary Objectives
+
+Demonstrate that low-cost, disposable scouts can provide meaningful mapping without being treated as flagship assets.
+
+Build a pattern of partial-coverage successes rather than an all-or-nothing, single-hero mission mindset.
+
+Provide enough internal truth to:
+
+inform follow-on missions,
+
+improve hazard models,
+
+refine infrastructure concepts (habitat, storage, shielding).
+
+Non-Objectives (Phase 0)
+
+LCS does not attempt to operate as permanent infrastructure.
+
+LCS does not attempt crew support or logistics.
+
+LCS does not attempt precision manipulation, sampling, or construction activities.
+
+6. Design Philosophy
+
+The core design philosophy is:
+
+Disposable by Intent
+
+Each LCS unit is expected to be lost eventually.
+
+Reliability comes from multiple units, not from trying to make one immortal.
+
+Slow and Conservative
+
+Velocity is intentionally low.
+
+Aggressive maneuvers are avoided.
+
+Geometry is scanned and understood before committing to risky movement.
+
+Strictly Off-Surface
+
+No intentional contact with walls, floor, or ceiling.
+
+Any contact is treated as a failure mode, not an allowed operating mode.
+
+Data-First Evaluation
+
+Success is measured by the quality and quantity of data returned, not by distance traveled.
+
+A mission that maps only the first segment but returns clean, well-structured data is considered successful.
+
+Crude But Reliable Communications Chain
+
+Uses simple, dropped repeaters as it progresses.
+
+Placement is geometry-tolerant: the goal is connectivity, not elegance.
+
+If link quality drops, behavior becomes more conservative.
+
+Graceful Failure
+
+If conditions degrade, LCS prioritizes:
+
+Transmitting what it has.
+
+Maintaining safe posture as long as it can.
+
+Terminating without endangering other assets.
+
+This philosophy keeps the system honest and reviewable. It avoids feature creep and prevents LCS from being reimagined as a rover, lander, or infrastructure node.
+
+7. Role in a Larger Mission
+
+LCS is designed as a tool inside a larger mission stack, not as the centerpiece.
+
+Likely integration pattern:
+
+A rover or fixed platform handles:
+
+deployment at the tube entrance,
+
+power and communications back to orbit/Earth,
+
+storing and forwarding LCS data.
+
+LCS handles:
+
+local free-flight navigation in the tube,
+
+geometry and environment sensing,
+
+relay deployment and localized decision-making.
+
+Downstream consumers (science teams, habitat designers, risk assessors) work with the returned maps and environment profiles to make decisions. LCS is not responsible for interpreting those decisions or executing follow-up infrastructure.
+
+8. Out-of-Scope Claims (Phase 0)
+
+LCS does not claim, at Phase 0:
+
+crewed operations support,
+
+long-term station-keeping or infrastructure roles,
+
+direct sample return,
+
+direct construction or modification of tube interiors,
+
+guaranteed full-tube traversal,
+
+precise quantitative performance metrics (range, resolution, lifetime).
+
+Those are Phase-1+ concerns. Phase 0’s job is to define what LCS is, what it is not, and how it behaves so that later work has a sane spine to build on.
